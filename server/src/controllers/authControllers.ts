@@ -5,8 +5,6 @@ import jwt from 'jsonwebtoken'
 import { generateToken } from '../utils/generateToken'
 
 import User from '../models/User'
-import { throws } from 'node:assert'
-import { info } from 'node:console'
 
 export const regesterUser = async(req: Request, res: Response) => {
     try {
