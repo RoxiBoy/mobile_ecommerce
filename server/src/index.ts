@@ -13,6 +13,9 @@ import OrderRoutes from './routes/orderRoutes'
 import CouponRoutes from './routes/couponRoutes'
 import PaymentRoutes from './routes/paymentRoutes'
 import NotificationRoutes from './routes/notificationRoutes'
+import MediaRoutes from './routes/mediaRoutes'
+import ChatRoutes from './routes/chatRoutes'
+import ModelRoutes from './routes/modelRoutes'
 
 const PORT: number = process.env.PORT ? Number(process.env.PORT) : 4000;
 const MONGODB_URI: string = process.env.MONGODB_URI ? String(process.env.MONGODB_URI) : ''
@@ -45,7 +48,9 @@ const start = async() => {
     app.use('/api/coupons', CouponRoutes)
     app.use('/api/payments', PaymentRoutes)
     app.use('/api/notifications', NotificationRoutes)
+    app.use('/api/media', MediaRoutes)
+    app.use('/api/chat', ChatRoutes)
+    app.use('/api/models', ModelRoutes)
 }
 
 start()
-

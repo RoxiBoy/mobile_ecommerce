@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import UserModel, { IUser } from '../models/User'
 import { AuthRequest } from '../utils/authRequestI'
 
-const JWT_SECRET = process.env.JWT_SECRET ? process.env.JWT_SECRET.toString() : ''
+const JWT_SECRET = process.env.JWT_SECRET ? process.env.JWT_SECRET.toString() : 'asdf'
 
 export const protect = async (req: AuthRequest, res: Response, next: NextFunction) => {
     let token;
@@ -46,9 +46,11 @@ export const protect = async (req: AuthRequest, res: Response, next: NextFunctio
             }
 
         }catch(err) {
-
-            console.log('[protect Middlware] Error', err)
-
+            console.log('[protect Middleware] Error', err)
+            return res.status(401).json({
+                status: 'Failed',
+                message: "Invalid auth token, access denied"
+            })
         }
     }else {
          return res.status(401).json({
@@ -57,4 +59,3 @@ export const protect = async (req: AuthRequest, res: Response, next: NextFunctio
         })
     }
 }
-
