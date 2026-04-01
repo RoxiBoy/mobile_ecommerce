@@ -71,7 +71,8 @@ npm run dev
 ```
 cd mobile
 npm install
-npm run start
+npm expo start
+press 'a'; # For android
 ```
 
 ### Admin Dashboard
